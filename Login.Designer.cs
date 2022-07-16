@@ -90,7 +90,7 @@ namespace Gestion_de_RT
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 6;
-            this.btnLogin.Text = "Ingresar";
+            this.btnLogin.Text = "Ingresarrr";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
