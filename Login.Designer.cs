@@ -43,9 +43,9 @@ namespace Gestion_de_RT
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.Location = new System.Drawing.Point(123, 9);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(138, 20);
+            this.lblLogin.Size = new System.Drawing.Size(173, 20);
             this.lblLogin.TabIndex = 0;
-            this.lblLogin.Text = "Ingreso al sistema";
+            this.lblLogin.Text = "Ingreso al sistema perri";
             this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtUsuario
