@@ -90,76 +90,117 @@ namespace Gestion_de_RT
         public void presentarTurnos(List<Tuple<string, DateTime, string>> datosTurnos)
         {
 
+            DataTable tabla = new DataTable();
 
-            for (int f = 0; f < datosTurnos.Count / 5; f++)
+            List<string> dias = new List<string>();
+            dias.Add("Lunes");
+            dias.Add("Martes");
+            dias.Add("Miércoles");
+            dias.Add("Jueves");
+            dias.Add("Viernes");
+            dias.Add("Sábado");
+            dias.Add("Domingo");
+
+
+            for (int i = 0; i < 7; i++)
             {
-                dgvTurnos.Rows.Add(new DataGridViewRow());
+                tabla.Columns.Add(dias[i].ToString(), typeof(string));
             }
-            
-            for (int c = 0; c <= 4; c++)
+
+            foreach (Tuple<string, DateTime, string> tupla in datosTurnos)
             {
-                for (int i = 0; i < dgvTurnos.Rows.Count; i++)
+                DataRow dr = tabla.NewRow();
+                tabla.Rows.Add(dr);
+                for (int i = 0; i < 7; i++)
                 {
-                    foreach (Tuple<string, DateTime, string> tupla in datosTurnos)
-                    {
-                        if (c == 0)
-                        {
-                            if (tupla.Item1.Equals("lunes"))
-                            {
-                                DataGridViewTextBoxCell celdaLunes = new DataGridViewTextBoxCell();
-                                celdaLunes.Value = tupla.Item2;
-                                dgvTurnos.Rows[i].Cells[c] = celdaLunes;
-                                datosTurnos.Remove(tupla);
-                                break;
-                            }
-                        }
-                        else if (c == 1)
-                        {
-                            if (tupla.Item1.Equals("martes"))
-                            {
-                                DataGridViewTextBoxCell celdaMartes = new DataGridViewTextBoxCell();
-                                celdaMartes.Value = tupla.Item2;
-                                dgvTurnos.Rows[i].Cells[c] = celdaMartes;
-                                datosTurnos.Remove(tupla);
-                                break;
-                            }
-                        }
-                        else if (c == 2)
-                        {
-                            if (tupla.Item1.Equals("miércoles"))
-                            {
-                                DataGridViewTextBoxCell celdaMiercoles = new DataGridViewTextBoxCell();
-                                celdaMiercoles.Value = tupla.Item2;
-                                dgvTurnos.Rows[i].Cells[c] = celdaMiercoles;
-                                datosTurnos.Remove(tupla);
-                                break;
-                            }
-                        }
-                        else if (c == 3)
-                        {
-                            if (tupla.Item1.Equals("jueves"))
-                            {
-                                DataGridViewTextBoxCell celdaJueves = new DataGridViewTextBoxCell();
-                                celdaJueves.Value = tupla.Item2;
-                                dgvTurnos.Rows[i].Cells[c] = celdaJueves;
-                                datosTurnos.Remove(tupla);
-                                break;
-                            }
-                        }
-                        else if (c == 4)
-                        {
-                            if (tupla.Item1.Equals("viernes"))
-                            {
-                                DataGridViewTextBoxCell celdaViernes = new DataGridViewTextBoxCell();
-                                celdaViernes.Value = tupla.Item2;
-                                dgvTurnos.Rows[i].Cells[c] = celdaViernes;
-                                datosTurnos.Remove(tupla);
-                                break;
-                            }
-                        }
-                    }
+                    dr[tupla.Item1.ToString()] = tupla.Item2.ToString();
                 }
+
             }
+            dgvTurnos.DataSource = tabla;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //for (int f = 0; f < datosTurnos.Count / 5; f++)
+            //{
+            //    dgvTurnos.Rows.Add(new DataGridViewRow());
+            //}
+            
+            //for (int c = 0; c <= 4; c++)
+            //{
+            //    for (int i = 0; i < dgvTurnos.Rows.Count; i++)
+            //    {
+            //        foreach (Tuple<string, DateTime, string> tupla in datosTurnos)
+            //        {
+            //            if (c == 0)
+            //            {
+            //                if (tupla.Item1.Equals("lunes"))
+            //                {
+            //                    DataGridViewTextBoxCell celdaLunes = new DataGridViewTextBoxCell();
+            //                    celdaLunes.Value = tupla.Item2;
+            //                    dgvTurnos.Rows[i].Cells[c] = celdaLunes;
+            //                    datosTurnos.Remove(tupla);
+            //                    break;
+            //                }
+            //            }
+            //            else if (c == 1)
+            //            {
+            //                if (tupla.Item1.Equals("martes"))
+            //                {
+            //                    DataGridViewTextBoxCell celdaMartes = new DataGridViewTextBoxCell();
+            //                    celdaMartes.Value = tupla.Item2;
+            //                    dgvTurnos.Rows[i].Cells[c] = celdaMartes;
+            //                    datosTurnos.Remove(tupla);
+            //                    break;
+            //                }
+            //            }
+            //            else if (c == 2)
+            //            {
+            //                if (tupla.Item1.Equals("miércoles"))
+            //                {
+            //                    DataGridViewTextBoxCell celdaMiercoles = new DataGridViewTextBoxCell();
+            //                    celdaMiercoles.Value = tupla.Item2;
+            //                    dgvTurnos.Rows[i].Cells[c] = celdaMiercoles;
+            //                    datosTurnos.Remove(tupla);
+            //                    break;
+            //                }
+            //            }
+            //            else if (c == 3)
+            //            {
+            //                if (tupla.Item1.Equals("jueves"))
+            //                {
+            //                    DataGridViewTextBoxCell celdaJueves = new DataGridViewTextBoxCell();
+            //                    celdaJueves.Value = tupla.Item2;
+            //                    dgvTurnos.Rows[i].Cells[c] = celdaJueves;
+            //                    datosTurnos.Remove(tupla);
+            //                    break;
+            //                }
+            //            }
+            //            else if (c == 4)
+            //            {
+            //                if (tupla.Item1.Equals("viernes"))
+            //                {
+            //                    DataGridViewTextBoxCell celdaViernes = new DataGridViewTextBoxCell();
+            //                    celdaViernes.Value = tupla.Item2;
+            //                    dgvTurnos.Rows[i].Cells[c] = celdaViernes;
+            //                    datosTurnos.Remove(tupla);
+            //                    break;
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
         }
 
         private void dgvTurnos_CellContentClick(object sender, DataGridViewCellEventArgs e)

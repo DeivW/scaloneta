@@ -40,11 +40,6 @@ namespace Gestion_de_RT
             this.lblCheckRT = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvTurnos = new System.Windows.Forms.DataGridView();
-            this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Martes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Miercoles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Jueves = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Viernes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,49 +151,16 @@ namespace Gestion_de_RT
             // 
             // dgvTurnos
             // 
+            this.dgvTurnos.AllowUserToAddRows = false;
+            this.dgvTurnos.AllowUserToDeleteRows = false;
             this.dgvTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTurnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Lunes,
-            this.Martes,
-            this.Miercoles,
-            this.Jueves,
-            this.Viernes});
-            this.dgvTurnos.Location = new System.Drawing.Point(113, 184);
+            this.dgvTurnos.Location = new System.Drawing.Point(226, 172);
             this.dgvTurnos.Name = "dgvTurnos";
-            this.dgvTurnos.Size = new System.Drawing.Size(795, 244);
+            this.dgvTurnos.ReadOnly = true;
+            this.dgvTurnos.Size = new System.Drawing.Size(581, 244);
             this.dgvTurnos.TabIndex = 10;
             this.dgvTurnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurnos_CellContentClick);
             this.dgvTurnos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurnos_CellDoubleClick);
-            // 
-            // Lunes
-            // 
-            this.Lunes.HeaderText = "Lunes";
-            this.Lunes.Name = "Lunes";
-            this.Lunes.Width = 150;
-            // 
-            // Martes
-            // 
-            this.Martes.HeaderText = "Martes";
-            this.Martes.Name = "Martes";
-            this.Martes.Width = 150;
-            // 
-            // Miercoles
-            // 
-            this.Miercoles.HeaderText = "Miercoles";
-            this.Miercoles.Name = "Miercoles";
-            this.Miercoles.Width = 150;
-            // 
-            // Jueves
-            // 
-            this.Jueves.HeaderText = "Jueves";
-            this.Jueves.Name = "Jueves";
-            this.Jueves.Width = 150;
-            // 
-            // Viernes
-            // 
-            this.Viernes.HeaderText = "Viernes";
-            this.Viernes.Name = "Viernes";
-            this.Viernes.Width = 150;
             // 
             // PantallaRegistrarReserva
             // 
@@ -239,11 +201,6 @@ namespace Gestion_de_RT
         private System.Windows.Forms.Label lblCheckRT;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView dgvTurnos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lunes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Martes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Miercoles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Jueves;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Viernes;
     }
 }
 
