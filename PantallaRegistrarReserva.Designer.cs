@@ -39,8 +39,8 @@ namespace Gestion_de_RT
             this.btnSelecRT = new System.Windows.Forms.Button();
             this.lblCheckRT = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.dgvTurnos = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).BeginInit();
+            this.dgvCalendario = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNvaReserva
@@ -149,25 +149,24 @@ namespace Gestion_de_RT
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // dgvTurnos
+            // dgvCalendario
             // 
-            this.dgvTurnos.AllowUserToAddRows = false;
-            this.dgvTurnos.AllowUserToDeleteRows = false;
-            this.dgvTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTurnos.Location = new System.Drawing.Point(226, 172);
-            this.dgvTurnos.Name = "dgvTurnos";
-            this.dgvTurnos.ReadOnly = true;
-            this.dgvTurnos.Size = new System.Drawing.Size(581, 244);
-            this.dgvTurnos.TabIndex = 10;
-            this.dgvTurnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurnos_CellContentClick);
-            this.dgvTurnos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurnos_CellDoubleClick);
+            this.dgvCalendario.AllowUserToAddRows = false;
+            this.dgvCalendario.AllowUserToDeleteRows = false;
+            this.dgvCalendario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCalendario.Location = new System.Drawing.Point(140, 209);
+            this.dgvCalendario.Name = "dgvCalendario";
+            this.dgvCalendario.ReadOnly = true;
+            this.dgvCalendario.Size = new System.Drawing.Size(765, 166);
+            this.dgvCalendario.TabIndex = 10;
+            this.dgvCalendario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurnos_CellDoubleClick);
             // 
             // PantallaRegistrarReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1031, 511);
-            this.Controls.Add(this.dgvTurnos);
+            this.Controls.Add(this.dgvCalendario);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblCheckRT);
             this.Controls.Add(this.btnSelecRT);
@@ -182,7 +181,7 @@ namespace Gestion_de_RT
             this.Name = "PantallaRegistrarReserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar reserva de un RT";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,7 +199,7 @@ namespace Gestion_de_RT
         private System.Windows.Forms.Button btnSelecRT;
         private System.Windows.Forms.Label lblCheckRT;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.DataGridView dgvTurnos;
+        private System.Windows.Forms.DataGridView dgvCalendario;
     }
 }
 
