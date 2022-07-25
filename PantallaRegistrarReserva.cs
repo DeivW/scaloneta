@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,8 @@ namespace Gestion_de_RT
 {
     public partial class PantallaRegistrarReserva : Form
     {
-        GestorRegistrarReserva gestor;
+        private GestorRegistrarReserva gestor;
+        private List<Tuple<string, DateTime, string>> datosTurnos;
 
         public PantallaRegistrarReserva(GestorRegistrarReserva gestor)
         {
@@ -21,7 +23,10 @@ namespace Gestion_de_RT
             gestor.setPantalla(this);
 
         }
-
+        public List<Tuple<string, DateTime, string>> getDatosTurnos()
+        {
+            return this.datosTurnos;
+        }
         private void btnNvaReserva_Click(object sender, EventArgs e)
         {
             this.habilitar();
@@ -89,6 +94,15 @@ namespace Gestion_de_RT
         }
         public void presentarTurnos(List<Tuple<string, DateTime, string>> datosTurnos)
         {
+            List<string> turnosDispo = new List<string>();
+            this.datosTurnos = datosTurnos;
+            foreach (Tuple<string, DateTime, string> turno in datosTurnos)
+            {
+                if (turno.Item3.Equals("Disponible"))
+                {
+                    turnosDispo.Add(turno.Item2.ToString());
+                }
+            }
 
             DataTable tabla = new DataTable();
 
@@ -107,111 +121,63 @@ namespace Gestion_de_RT
                 tabla.Columns.Add(dias[i].ToString(), typeof(string));
             }
 
-            foreach (Tuple<string, DateTime, string> tupla in datosTurnos)
+            DateTime fechaInicial = DateTime.Now.Date;
+            for (int i = 0; i < 6; i++)
             {
                 DataRow dr = tabla.NewRow();
                 tabla.Rows.Add(dr);
-                for (int i = 0; i < 7; i++)
-                {
-                    dr[tupla.Item1.ToString()] = tupla.Item2.ToString();
-                }
-
             }
-            dgvTurnos.DataSource = tabla;
+            int indice = 0;
+            for (DateTime d = fechaInicial; d < fechaInicial.AddMonths(1); d = d.AddDays(1))
+            {
+                // d.ToString("dddd", new CultureInfo("es-ES"))
 
+                tabla.Rows[indice][d.ToString("dddd", new CultureInfo("es-ES"))] = d.Date.ToString();
+                if (d.ToString("dddd", new CultureInfo("es-ES")).Equals("domingo"))
+                {
+                    indice++;
+                }
+            }
 
+            dgvCalendario.DataSource = tabla;
+            for (int f = 0; f < 6; f++)
+            {
+                for (int c = 0; c < 7; c++)
+                {
+                    if (turnosDispo.Contains(dgvCalendario[c, f].Value.ToString()))
+                    {
+                        dgvCalendario[c, f].Style.BackColor = Color.FromArgb(7, 83, 217);
+                    }
+                    else
+                    {
+                        dgvCalendario[c, f].Style.BackColor = Color.FromArgb(230, 47, 8);
+                    }
 
+                }
+            }
 
-
-
-
-
-
-
-
-
-
-
-            //for (int f = 0; f < datosTurnos.Count / 5; f++)
-            //{
-            //    dgvTurnos.Rows.Add(new DataGridViewRow());
-            //}
-            
-            //for (int c = 0; c <= 4; c++)
-            //{
-            //    for (int i = 0; i < dgvTurnos.Rows.Count; i++)
-            //    {
-            //        foreach (Tuple<string, DateTime, string> tupla in datosTurnos)
-            //        {
-            //            if (c == 0)
-            //            {
-            //                if (tupla.Item1.Equals("lunes"))
-            //                {
-            //                    DataGridViewTextBoxCell celdaLunes = new DataGridViewTextBoxCell();
-            //                    celdaLunes.Value = tupla.Item2;
-            //                    dgvTurnos.Rows[i].Cells[c] = celdaLunes;
-            //                    datosTurnos.Remove(tupla);
-            //                    break;
-            //                }
-            //            }
-            //            else if (c == 1)
-            //            {
-            //                if (tupla.Item1.Equals("martes"))
-            //                {
-            //                    DataGridViewTextBoxCell celdaMartes = new DataGridViewTextBoxCell();
-            //                    celdaMartes.Value = tupla.Item2;
-            //                    dgvTurnos.Rows[i].Cells[c] = celdaMartes;
-            //                    datosTurnos.Remove(tupla);
-            //                    break;
-            //                }
-            //            }
-            //            else if (c == 2)
-            //            {
-            //                if (tupla.Item1.Equals("miércoles"))
-            //                {
-            //                    DataGridViewTextBoxCell celdaMiercoles = new DataGridViewTextBoxCell();
-            //                    celdaMiercoles.Value = tupla.Item2;
-            //                    dgvTurnos.Rows[i].Cells[c] = celdaMiercoles;
-            //                    datosTurnos.Remove(tupla);
-            //                    break;
-            //                }
-            //            }
-            //            else if (c == 3)
-            //            {
-            //                if (tupla.Item1.Equals("jueves"))
-            //                {
-            //                    DataGridViewTextBoxCell celdaJueves = new DataGridViewTextBoxCell();
-            //                    celdaJueves.Value = tupla.Item2;
-            //                    dgvTurnos.Rows[i].Cells[c] = celdaJueves;
-            //                    datosTurnos.Remove(tupla);
-            //                    break;
-            //                }
-            //            }
-            //            else if (c == 4)
-            //            {
-            //                if (tupla.Item1.Equals("viernes"))
-            //                {
-            //                    DataGridViewTextBoxCell celdaViernes = new DataGridViewTextBoxCell();
-            //                    celdaViernes.Value = tupla.Item2;
-            //                    dgvTurnos.Rows[i].Cells[c] = celdaViernes;
-            //                    datosTurnos.Remove(tupla);
-            //                    break;
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-        }
-
-        private void dgvTurnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-        
+        }      
         private void dgvTurnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            MessageBox.Show("Usted escogio el turno " + dgvTurnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+            if (dgvCalendario.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.FromArgb(230, 47, 8))
+                {
+                MessageBox.Show("Error - Este día no hay turnos disponibles" );
+            }
+            else
+            {
+                //MessageBox.Show("Usted escogio el turno " + dgvCalendario.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                //this.Enabled = false;
+                //popUp turnos = new popUp(this);
+                //List<Tuple<string, DateTime, string>> turnosDia = new List<Tuple<string, DateTime, string>>();
+                //foreach (Tuple<string, DateTime, string> turno in this.datosTurnos)
+                //{
+                //    if (turno.Item2)
+                //    {
+                //        fgd
+                //    }
+                //}
+                //turnos.Show();
+            }
         }
     }
 }

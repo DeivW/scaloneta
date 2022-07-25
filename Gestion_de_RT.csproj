@@ -70,6 +70,12 @@
     <Compile Include="PantallaRegistrarReserva.Designer.cs">
       <DependentUpon>PantallaRegistrarReserva.cs</DependentUpon>
     </Compile>
+    <Compile Include="popUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popUp.Designer.cs">
+      <DependentUpon>popUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Login.resx">
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PantallaRegistrarReserva.resx">
       <DependentUpon>PantallaRegistrarReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popUp.resx">
+      <DependentUpon>popUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
