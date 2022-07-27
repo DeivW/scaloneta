@@ -46,6 +46,8 @@ namespace Gestion_de_RT
             estados.Add(new Estado("RT", "Baja"));
             estados.Add(new Estado("RT", "Mantenimiento"));
             estados.Add(new Estado("Turno", "Disponible"));
+            estados.Add(new Estado("Turno", "Reservado"));
+            gestor.setEstados(estados);
             // CAMBIOS DE ESTADO RT
             List<CambioEstadoRT> cambiosEstadoRT = new List<CambioEstadoRT>();
             //Mantenimiento

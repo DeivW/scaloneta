@@ -11,6 +11,7 @@ namespace Gestion_de_RT
     public class GestorRegistrarReserva
     {
         private PantallaRegistrarReserva pantalla;
+        private List<Estado> estados;
         private List<TipoRecursoTeconologico> tipoRecursos;
         private TipoRecursoTeconologico tipoRTSeleccionado;
         private List<RecursoTeconologico> RTs;
@@ -18,6 +19,7 @@ namespace Gestion_de_RT
         private Sesion sesionActual;
         private PersonalCientifico cientificoEnSesion;
         private DateTime turnoSeleccionado;
+        //private Estado estadoTurnoReservado;
 
 
         public GestorRegistrarReserva()
@@ -32,7 +34,10 @@ namespace Gestion_de_RT
         {
             this.pantalla = pantalla;
         }
-
+        public void setEstados(List<Estado> estados)
+        {
+            this.estados = estados;
+        }
         public void setRTs(List<RecursoTeconologico> RT)
         {
             this.RTs = RT;
@@ -111,17 +116,42 @@ namespace Gestion_de_RT
         {
             pantalla.mostrarMensajePertenencia(this.RTSeleccionado.esCientificoActivoDeMiCI(this.cientificoEnSesion));
             // this.RTSeleccionado.esCientificoActivoDeMiCI(cientificoEnSesion);
-            this.buscarTurnos();
+            this.buscarTurnos(this.RTSeleccionado.esCientificoActivoDeMiCI(this.cientificoEnSesion));
            
         }
-        public void buscarTurnos()
+        public void buscarTurnos(bool pertenece)
         {
             List<Tuple<string, DateTime, string>> datosTurnos = new List<Tuple<string, DateTime, string>>();
-            datosTurnos = this.RTSeleccionado.mostrarTurnos();
+            datosTurnos = this.RTSeleccionado.mostrarTurnos(pertenece);
             pantalla.presentarTurnos(datosTurnos);
 
         }
+        public void tomarSeleccionTurno(DateTime fechaTurno)
+        {
+            //this.turnoSeleccionado = fechaTurno;
+            pantalla.pedirConfirmacion(fechaTurno);
+        }
+        public void tomarConfirmacion(DateTime fechaConfirmada)
+        {
+            this.turnoSeleccionado = fechaConfirmada;
+            this.registrarReservaTurnoRT();
+        }
+        public void registrarReservaTurnoRT()
+        {
 
+            this.RTSeleccionado.reservarTurno(this.turnoSeleccionado,this.buscarEstadoReservadoTurno());
+        }
+        public Estado buscarEstadoReservadoTurno()
+        {
+            foreach (Estado estado in this.estados)
+            {
+                if (estado.esAmbitoTurno() && estado.esReservado())
+                {
+                    return estado;
+                }
+            }
+            return null;
+        }
     }
 
  

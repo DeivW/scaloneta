@@ -100,7 +100,8 @@ namespace Gestion_de_RT
             {
                 if (turno.Item3.Equals("Disponible"))
                 {
-                    turnosDispo.Add(turno.Item2.ToString());
+                    //   turnosDispo.Add(turno.Item2.ToString());
+                    turnosDispo.Add(turno.Item2.ToString("dd/M/yyyy"));
                 }
             }
 
@@ -132,7 +133,7 @@ namespace Gestion_de_RT
             {
                 // d.ToString("dddd", new CultureInfo("es-ES"))
 
-                tabla.Rows[indice][d.ToString("dddd", new CultureInfo("es-ES"))] = d.Date.ToString();
+                tabla.Rows[indice][d.ToString("dddd", new CultureInfo("es-ES"))] = d.Date.ToString("dd/M/yyyy");
                 if (d.ToString("dddd", new CultureInfo("es-ES")).Equals("domingo"))
                 {
                     indice++;
@@ -156,28 +157,89 @@ namespace Gestion_de_RT
                 }
             }
 
-        }      
+        }
         private void dgvTurnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCalendario.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.FromArgb(230, 47, 8))
-                {
-                MessageBox.Show("Error - Este día no hay turnos disponibles" );
+            {
+                MessageBox.Show("Error - Este día no hay turnos disponibles");
             }
             else
             {
                 //MessageBox.Show("Usted escogio el turno " + dgvCalendario.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                //this.Enabled = false;
-                //popUp turnos = new popUp(this);
-                //List<Tuple<string, DateTime, string>> turnosDia = new List<Tuple<string, DateTime, string>>();
-                //foreach (Tuple<string, DateTime, string> turno in this.datosTurnos)
-                //{
-                //    if (turno.Item2)
-                //    {
-                //        fgd
-                //    }
-                //}
-                //turnos.Show();
+                this.Enabled = false;
+
+                List<Tuple<string, DateTime, string>> turnosDia = new List<Tuple<string, DateTime, string>>();
+                foreach (Tuple<string, DateTime, string> turno in this.datosTurnos)
+                {
+                    if (turno.Item2.ToString("dd/M/yyyy") == dgvCalendario.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString())
+                    {
+                        turnosDia.Add(turno);
+                    }
+                }
+                popUp turnos = new popUp(this, turnosDia);
+                turnos.Show();
             }
+        }
+
+        public void seleccionTurno(DateTime fechaTurno)
+        {
+            this.gestor.tomarSeleccionTurno(fechaTurno);
+        }
+        public void presentarFormasNotificacion()
+        {
+        
+        }
+        public void pedirConfirmacion(DateTime fechaTurno)
+        {
+
+            DialogResult resultado = MessageBox.Show("Desea confirmar el turno con fecha " + fechaTurno.ToString(), "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (resultado == DialogResult.OK)
+            {
+                MessageBox.Show("Turno seleccionado con exito!");
+                gestor.tomarConfirmacion(fechaTurno);
+                dgvCalendario.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Cancelo la confirmación!");
+            }
+        }
+
+        //private void cmbTiposRT_DrawItem(object sender, DrawItemEventArgs e)
+        //{
+        //    // Draw the background 
+        //    e.DrtawBackground();
+
+        //    // Get the item text    
+        //    string text = ((ComboBox)sender).Items[e.Index].ToString();
+
+        //    // Determine the forecolor based on whether or not the item is selected    
+        //    Brush brush;
+        //    if (YourListOfDates[e.Index] < DateTime.Now)// compare  date with your list.  
+        //    {
+        //        brush = Brushes.Red;
+        //    }
+        //    else
+        //    {
+        //        brush = Brushes.Green;
+        //    }
+
+        //    // Draw the text    
+        //    e.Graphics.DrawString(text, ((Control)sender).Font, brush, e.Bounds.X, e.Bounds.Y);
+        //}
+
+
+
+
+
+
+
+
+
+        private void PantallaRegistrarReserva_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

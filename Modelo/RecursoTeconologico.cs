@@ -18,6 +18,7 @@ namespace Gestion_de_RT.Modelo
         private CentroInvestigacion CI;
         private int fraccionamientoTurnos;
         private List<Turno> turnos;
+        private int tiempoAntelacionReserva = 3;
 
         public RecursoTeconologico(TipoRecursoTeconologico tipoRT, int num)
         {
@@ -81,17 +82,44 @@ namespace Gestion_de_RT.Modelo
         {
             return this.turnos;
         }
-        public List<Tuple<string, DateTime, string>> mostrarTurnos()
+        public List<Tuple<string, DateTime, string>> mostrarTurnos(bool pertenece)
         {
             List<Tuple<string, DateTime, string>> datosTurnos = new List<Tuple<string, DateTime, string>>();
-            foreach (Turno turno in this.turnos)
+            if (!pertenece)
             {
-                if (turno.tieneFechaGeneracionMayorA(DateTime.Now))
+                foreach (Turno turno in this.turnos)
                 {
-                    datosTurnos.Add(new Tuple<string, DateTime, string>(turno.getDiaSemana(),turno.getFechaHoraInicio(), turno.mostrarEstado()));
+                    if (turno.tieneFechaGeneracionMayorA(DateTime.Now) && (turno.getFechaHoraInicio() > DateTime.Now.AddDays(this.tiempoAntelacionReserva)))
+                    {
+                        datosTurnos.Add(new Tuple<string, DateTime, string>(turno.getDiaSemana(), turno.getFechaHoraInicio(), turno.mostrarEstado()));
+                    }
                 }
             }
+            else
+            {
+                foreach (Turno turno in this.turnos)
+                {
+                    if (turno.tieneFechaGeneracionMayorA(DateTime.Now))
+                    {
+                        datosTurnos.Add(new Tuple<string, DateTime, string>(turno.getDiaSemana(), turno.getFechaHoraInicio(), turno.mostrarEstado()));
+                    }
+                }
+            }
+
             return datosTurnos;
+        }
+
+        public void reservarTurno(DateTime fechaTurno, Estado estadoReservado)
+        {
+            foreach (Turno turno in this.turnos)
+            {
+                if (turno.getFechaHoraInicio() == fechaTurno)
+                {
+                    turno.enReserva(estadoReservado);
+                    Console.WriteLine("FIN CU REY");
+                }
+            }
+
         }
     }
 }

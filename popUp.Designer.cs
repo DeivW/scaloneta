@@ -29,38 +29,47 @@ namespace Gestion_de_RT
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grillaTurnos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaTurnos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // grillaTurnos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(473, 206);
-            this.dataGridView1.TabIndex = 0;
+            this.grillaTurnos.AllowUserToAddRows = false;
+            this.grillaTurnos.AllowUserToDeleteRows = false;
+            this.grillaTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grillaTurnos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grillaTurnos.Location = new System.Drawing.Point(0, 0);
+            this.grillaTurnos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grillaTurnos.MultiSelect = false;
+            this.grillaTurnos.Name = "grillaTurnos";
+            this.grillaTurnos.ReadOnly = true;
+            this.grillaTurnos.RowHeadersWidth = 51;
+            this.grillaTurnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grillaTurnos.Size = new System.Drawing.Size(463, 123);
+            this.grillaTurnos.TabIndex = 0;
+            this.grillaTurnos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaTurnos_CellContentDoubleClick);
             // 
             // popUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 206);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(463, 123);
+            this.Controls.Add(this.grillaTurnos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "popUp";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Turnos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.popUp_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.grillaTurnos)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grillaTurnos;
     }
 }

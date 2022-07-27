@@ -45,5 +45,9 @@ namespace Gestion_de_RT.Modelo
         {
             return this.nombre;
         }
+        public bool esReservado()
+        {
+            return this.nombre.Equals("Reservado");
+        }
     }
 }

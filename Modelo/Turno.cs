@@ -67,5 +67,16 @@ namespace Gestion_de_RT.Modelo
             }
             return res;
         }
+        public void enReserva(Estado estadoReservado)
+        {
+            foreach (CambioEstadoTurno cambioEstado in this.cambiosEstado)
+            {
+                if (cambioEstado.esActual())
+                {
+                    cambioEstado.setFechaHoraHasta(DateTime.Now);
+                }
+            }
+            this.cambiosEstado.Add(new CambioEstadoTurno(DateTime.Now, estadoReservado));
+        }
     }
 }
