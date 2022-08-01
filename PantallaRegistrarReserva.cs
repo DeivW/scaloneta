@@ -55,17 +55,17 @@ namespace Gestion_de_RT
             cmbTiposRT.Enabled = false;
             lblCheckTipoRT.Visible = true;
         }
-        public void listarRT(List<int> numRT)
+        public void listarRT(List<Tuple<int, string, string>> datosRTs)
         {
             lblRTs.Visible = true;
             cmbRTs.Visible = true;
             btnSelecRT.Visible = true;
-            cmbRTs.DataSource = numRT;
+            cmbRTs.DataSource = datosRTs;
 
         }
         public void seleccionRT()
         {
-            gestor.tomarSeleccionRT(int.Parse(cmbRTs.SelectedItem.ToString()));
+            gestor.tomarSeleccionRT(int.Parse(cmbRTs.SelectedItem.ToString().Substring(1, 3)));
             btnSelecRT.Enabled = false;
             cmbRTs.Enabled = false;
             lblCheckRT.Visible = true;
@@ -199,6 +199,8 @@ namespace Gestion_de_RT
                 MessageBox.Show("Turno seleccionado con exito!");
                 gestor.tomarConfirmacion(fechaTurno);
                 dgvCalendario.Enabled = false;
+                lblTurnoConfirmado.Text = "Turno para el día y hora " + fechaTurno.ToString() + " confirmado con éxito!" ;
+                lblTurnoConfirmado.Visible = true;
             }
             else
             {
@@ -240,6 +242,11 @@ namespace Gestion_de_RT
         private void PantallaRegistrarReserva_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void PantallaRegistrarReserva_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

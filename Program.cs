@@ -18,7 +18,6 @@ namespace Gestion_de_RT
         {
             /*
                         CODIGO DURO - CREACION DE OBJETOS
-
              */
             TipoRecursoTeconologico tipo1 = new TipoRecursoTeconologico("Aumentos altos para realizar inspecciones", "Microscopios");
             TipoRecursoTeconologico tipo2 = new TipoRecursoTeconologico("Instrumento para realizar mediciones de peso de alta precisión", "Balanzas de precisión");
@@ -38,6 +37,19 @@ namespace Gestion_de_RT
             listaRTs.Add(new RecursoTeconologico(tipo1, 250));
             listaRTs.Add(new RecursoTeconologico(tipo1, 8));
             gestor.setRTs(listaRTs);
+            // MODELOS Y MARCAS
+            Marca marca1 = new Marca("Elektronic");
+            Marca marca2 = new Marca("Samsung");
+            
+            List<Modelo.Modelo> listaModelos = new List<Modelo.Modelo>();
+            listaModelos.Add(new Modelo.Modelo("X31-JK"));
+            listaModelos.Add(new Modelo.Modelo("JASM-CSD21"));
+            marca2.setModelos(listaModelos);
+            // ASIGNACION DE MODELOS A LOS RT
+            foreach (RecursoTeconologico RT in listaRTs)
+            {
+                RT.setModelo(listaModelos[0]);
+            }
             // ESTADOS
             List<Estado> estados = new List<Estado>();
             estados.Add(new Estado("RT", "Reservado"));
@@ -84,6 +96,7 @@ namespace Gestion_de_RT
             // ASIGNACION DE CIENTIFICOS DEL CI
             AsignacionCientificoCI asignacion = new AsignacionCientificoCI(new DateTime(2022, 01, 01), new DateTime(2022, 12, 31), personal2);
             CI.agregarAsignacion(asignacion);
+            // DEPENDENCIA DEL RT AL CI
             foreach (RecursoTeconologico rt in listaRTs)
             {
                 rt.setCI(CI);
@@ -120,6 +133,7 @@ namespace Gestion_de_RT
                 
             }
             listaRTs[0].setTurnos(agendaTurnos);
+            //listaRTs[0].setTurnos(agendaTurnos);
 
 
 

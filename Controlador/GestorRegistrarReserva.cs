@@ -88,12 +88,27 @@ namespace Gestion_de_RT
 
                 }
             }
+
+            // LABURAR ESTA PARTE 
+            // Numero, modelo, marca y centro de investigación
+
+            List<Tuple<int, string, string>> datosRTs = new List<Tuple<int, string, string>>();
             List<int> numRT = new List<int>();
             foreach (RecursoTeconologico RT in RTCandidatos)
             {
+                datosRTs.Add(RT.mostrarDatos());
                 numRT.Add(RT.getNumero());
             }
-            pantalla.listarRT(numRT);
+            pantalla.listarRT(datosRTs);
+
+
+
+            //----
+        }
+        // VEEER kionda
+        public void agruparPorCI()
+        {
+
         }
         public void tomarSeleccionRT(int numRT)
         {
@@ -124,7 +139,6 @@ namespace Gestion_de_RT
             List<Tuple<string, DateTime, string>> datosTurnos = new List<Tuple<string, DateTime, string>>();
             datosTurnos = this.RTSeleccionado.mostrarTurnos(pertenece);
             pantalla.presentarTurnos(datosTurnos);
-
         }
         public void tomarSeleccionTurno(DateTime fechaTurno)
         {

@@ -31,7 +31,10 @@ namespace Gestion_de_RT.Modelo
             this.recursos = recursos;
             this.cientificos = new List<AsignacionCientificoCI>();
         }
-
+        public string getNombre()
+        {
+            return this.nombre;
+        }
         public void agregarAsignacion(AsignacionCientificoCI asignacion)
         {
             this.cientificos.Add(asignacion);

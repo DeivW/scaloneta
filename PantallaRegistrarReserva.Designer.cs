@@ -40,15 +40,15 @@ namespace Gestion_de_RT
             this.lblCheckRT = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvCalendario = new System.Windows.Forms.DataGridView();
+            this.lblTurnoConfirmado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNvaReserva
             // 
-            this.btnNvaReserva.Location = new System.Drawing.Point(584, 15);
-            this.btnNvaReserva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNvaReserva.Location = new System.Drawing.Point(438, 12);
             this.btnNvaReserva.Name = "btnNvaReserva";
-            this.btnNvaReserva.Size = new System.Drawing.Size(165, 28);
+            this.btnNvaReserva.Size = new System.Drawing.Size(124, 23);
             this.btnNvaReserva.TabIndex = 0;
             this.btnNvaReserva.Text = "Registrar reserva";
             this.btnNvaReserva.UseVisualStyleBackColor = true;
@@ -58,30 +58,27 @@ namespace Gestion_de_RT
             // 
             this.cmbTiposRT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTiposRT.FormattingEnabled = true;
-            this.cmbTiposRT.Location = new System.Drawing.Point(253, 68);
-            this.cmbTiposRT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTiposRT.Location = new System.Drawing.Point(190, 55);
             this.cmbTiposRT.Name = "cmbTiposRT";
-            this.cmbTiposRT.Size = new System.Drawing.Size(185, 24);
+            this.cmbTiposRT.Size = new System.Drawing.Size(156, 21);
             this.cmbTiposRT.TabIndex = 1;
             this.cmbTiposRT.Visible = false;
             // 
             // lblTiposRT
             // 
             this.lblTiposRT.AutoSize = true;
-            this.lblTiposRT.Location = new System.Drawing.Point(16, 71);
-            this.lblTiposRT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTiposRT.Location = new System.Drawing.Point(12, 58);
             this.lblTiposRT.Name = "lblTiposRT";
-            this.lblTiposRT.Size = new System.Drawing.Size(227, 17);
+            this.lblTiposRT.Size = new System.Drawing.Size(172, 13);
             this.lblTiposRT.TabIndex = 2;
             this.lblTiposRT.Text = "Tipos de Recursos Teconológicos:";
             this.lblTiposRT.Visible = false;
             // 
             // btnSelecTipoRT
             // 
-            this.btnSelecTipoRT.Location = new System.Drawing.Point(448, 68);
-            this.btnSelecTipoRT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelecTipoRT.Location = new System.Drawing.Point(352, 55);
             this.btnSelecTipoRT.Name = "btnSelecTipoRT";
-            this.btnSelecTipoRT.Size = new System.Drawing.Size(100, 28);
+            this.btnSelecTipoRT.Size = new System.Drawing.Size(75, 23);
             this.btnSelecTipoRT.TabIndex = 3;
             this.btnSelecTipoRT.Text = "Seleccionar";
             this.btnSelecTipoRT.UseVisualStyleBackColor = true;
@@ -93,10 +90,9 @@ namespace Gestion_de_RT
             this.lblCheckTipoRT.AutoSize = true;
             this.lblCheckTipoRT.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckTipoRT.ForeColor = System.Drawing.Color.Lime;
-            this.lblCheckTipoRT.Location = new System.Drawing.Point(556, 64);
-            this.lblCheckTipoRT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCheckTipoRT.Location = new System.Drawing.Point(433, 52);
             this.lblCheckTipoRT.Name = "lblCheckTipoRT";
-            this.lblCheckTipoRT.Size = new System.Drawing.Size(30, 31);
+            this.lblCheckTipoRT.Size = new System.Drawing.Size(25, 26);
             this.lblCheckTipoRT.TabIndex = 4;
             this.lblCheckTipoRT.Text = "✓";
             this.lblCheckTipoRT.Visible = false;
@@ -104,10 +100,9 @@ namespace Gestion_de_RT
             // lblRTs
             // 
             this.lblRTs.AutoSize = true;
-            this.lblRTs.Location = new System.Drawing.Point(88, 113);
-            this.lblRTs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRTs.Location = new System.Drawing.Point(66, 92);
             this.lblRTs.Name = "lblRTs";
-            this.lblRTs.Size = new System.Drawing.Size(155, 17);
+            this.lblRTs.Size = new System.Drawing.Size(118, 13);
             this.lblRTs.TabIndex = 5;
             this.lblRTs.Text = "Recursos tecnológicos:";
             this.lblRTs.Visible = false;
@@ -116,19 +111,17 @@ namespace Gestion_de_RT
             // 
             this.cmbRTs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRTs.FormattingEnabled = true;
-            this.cmbRTs.Location = new System.Drawing.Point(253, 110);
-            this.cmbRTs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbRTs.Location = new System.Drawing.Point(190, 89);
             this.cmbRTs.Name = "cmbRTs";
-            this.cmbRTs.Size = new System.Drawing.Size(185, 24);
+            this.cmbRTs.Size = new System.Drawing.Size(156, 21);
             this.cmbRTs.TabIndex = 6;
             this.cmbRTs.Visible = false;
             // 
             // btnSelecRT
             // 
-            this.btnSelecRT.Location = new System.Drawing.Point(448, 107);
-            this.btnSelecRT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelecRT.Location = new System.Drawing.Point(352, 87);
             this.btnSelecRT.Name = "btnSelecRT";
-            this.btnSelecRT.Size = new System.Drawing.Size(100, 28);
+            this.btnSelecRT.Size = new System.Drawing.Size(75, 23);
             this.btnSelecRT.TabIndex = 7;
             this.btnSelecRT.Text = "Seleccionar";
             this.btnSelecRT.UseVisualStyleBackColor = true;
@@ -140,20 +133,18 @@ namespace Gestion_de_RT
             this.lblCheckRT.AutoSize = true;
             this.lblCheckRT.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckRT.ForeColor = System.Drawing.Color.Lime;
-            this.lblCheckRT.Location = new System.Drawing.Point(556, 108);
-            this.lblCheckRT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCheckRT.Location = new System.Drawing.Point(433, 84);
             this.lblCheckRT.Name = "lblCheckRT";
-            this.lblCheckRT.Size = new System.Drawing.Size(30, 31);
+            this.lblCheckRT.Size = new System.Drawing.Size(25, 26);
             this.lblCheckRT.TabIndex = 8;
             this.lblCheckRT.Text = "✓";
             this.lblCheckRT.Visible = false;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(1259, 586);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Location = new System.Drawing.Point(944, 476);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(100, 28);
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -164,20 +155,31 @@ namespace Gestion_de_RT
             this.dgvCalendario.AllowUserToAddRows = false;
             this.dgvCalendario.AllowUserToDeleteRows = false;
             this.dgvCalendario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCalendario.Location = new System.Drawing.Point(178, 235);
-            this.dgvCalendario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCalendario.Location = new System.Drawing.Point(124, 175);
             this.dgvCalendario.Name = "dgvCalendario";
             this.dgvCalendario.ReadOnly = true;
             this.dgvCalendario.RowHeadersWidth = 51;
-            this.dgvCalendario.Size = new System.Drawing.Size(1020, 204);
+            this.dgvCalendario.Size = new System.Drawing.Size(765, 166);
             this.dgvCalendario.TabIndex = 10;
             this.dgvCalendario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurnos_CellDoubleClick);
             // 
+            // lblTurnoConfirmado
+            // 
+            this.lblTurnoConfirmado.AutoSize = true;
+            this.lblTurnoConfirmado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTurnoConfirmado.Location = new System.Drawing.Point(120, 344);
+            this.lblTurnoConfirmado.Name = "lblTurnoConfirmado";
+            this.lblTurnoConfirmado.Size = new System.Drawing.Size(51, 20);
+            this.lblTurnoConfirmado.TabIndex = 11;
+            this.lblTurnoConfirmado.Text = "label1";
+            this.lblTurnoConfirmado.Visible = false;
+            // 
             // PantallaRegistrarReserva
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1375, 629);
+            this.ClientSize = new System.Drawing.Size(1023, 511);
+            this.Controls.Add(this.lblTurnoConfirmado);
             this.Controls.Add(this.dgvCalendario);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblCheckRT);
@@ -189,12 +191,12 @@ namespace Gestion_de_RT
             this.Controls.Add(this.lblTiposRT);
             this.Controls.Add(this.cmbTiposRT);
             this.Controls.Add(this.btnNvaReserva);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "PantallaRegistrarReserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar reserva de un RT";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PantallaRegistrarReserva_FormClosing);
+            this.Load += new System.EventHandler(this.PantallaRegistrarReserva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -214,6 +216,7 @@ namespace Gestion_de_RT
         private System.Windows.Forms.Label lblCheckRT;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView dgvCalendario;
+        private System.Windows.Forms.Label lblTurnoConfirmado;
     }
 }
 

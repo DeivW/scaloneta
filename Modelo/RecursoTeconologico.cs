@@ -19,6 +19,7 @@ namespace Gestion_de_RT.Modelo
         private int fraccionamientoTurnos;
         private List<Turno> turnos;
         private int tiempoAntelacionReserva = 3;
+        private Modelo modelo;
 
         public RecursoTeconologico(TipoRecursoTeconologico tipoRT, int num)
         {
@@ -36,6 +37,22 @@ namespace Gestion_de_RT.Modelo
             this.fraccionamientoTurnos = 8;
             //this.cambiosEstado = new List<CambioEstadoRT>();
         }
+        public Tuple<int, string, string> mostrarDatos()
+        {
+            int numero = this.getNumero();
+            string modeloMarca = this.miModeloYMarca();
+            string CI = this.miCI();
+            Tuple<int, string, string> datos = new Tuple<int, string, string>(numero, modeloMarca, CI);
+            return datos;
+        }
+        public string miModeloYMarca()
+        {
+                return this.modelo.getMarcaYModelo();
+        }
+        public string miCI()
+        {
+            return this.CI.getNombre();
+        }
         public int getNumero()
         {
 
@@ -45,7 +62,10 @@ namespace Gestion_de_RT.Modelo
         {
             this.CI = ci;
         }
-
+        public void setModelo(Modelo modelo)
+        {
+            this.modelo = modelo;
+        }
         public void cambiarEstado(CambioEstadoRT cambioEstado)
         {
             this.cambiosEstado.Add(cambioEstado);
