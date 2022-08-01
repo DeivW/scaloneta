@@ -53,7 +53,7 @@ namespace Gestion_de_RT
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(222, 69);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(177, 22);
             this.txtUsuario.TabIndex = 2;
@@ -61,8 +61,9 @@ namespace Gestion_de_RT
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(222, 117);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(177, 22);
             this.txtPass.TabIndex = 4;
             // 
@@ -95,7 +96,7 @@ namespace Gestion_de_RT
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(210, 169);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 35);
             this.btnLogin.TabIndex = 6;
@@ -115,7 +116,7 @@ namespace Gestion_de_RT
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblLogin);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
