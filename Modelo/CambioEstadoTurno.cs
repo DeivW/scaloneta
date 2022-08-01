@@ -17,7 +17,7 @@ namespace Gestion_de_RT.Modelo
             this.fechaDesde = fechaDesde;
             this.estado = estado;
         }
-        public void setFechaHasta(DateTime fechaHasta)
+        public void setFechaHoraHasta(DateTime fechaHasta)
         {
             this.fechaHasta = fechaHasta;
 

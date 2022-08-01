@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GestorRegistrarReserva.cs" />
+    <Compile Include="Controlador\GestorRegistrarReserva.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +58,8 @@
     <Compile Include="Modelo\CambioEstadoTurno.cs" />
     <Compile Include="Modelo\CentroInvestigacion.cs" />
     <Compile Include="Modelo\Estado.cs" />
+    <Compile Include="Modelo\Marca.cs" />
+    <Compile Include="Modelo\Modelo.cs" />
     <Compile Include="Modelo\PersonalCientifico.cs" />
     <Compile Include="Modelo\RecursoTeconologico.cs" />
     <Compile Include="Modelo\Sesion.cs" />

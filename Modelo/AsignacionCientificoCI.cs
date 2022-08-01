@@ -11,6 +11,7 @@ namespace Gestion_de_RT.Modelo
         private DateTime fechaDesde;
         private DateTime fechaHasta;
         private PersonalCientifico cientifico;
+        private List<Turno> turnos;
 
         public AsignacionCientificoCI()
         {
@@ -35,6 +36,10 @@ namespace Gestion_de_RT.Modelo
                 return this.cientifico.Equals(personal);
             }      
             return false;
+        }
+        public void agregarTurno(Turno turno)
+        {
+            this.turnos.Add(turno);
         }
     }
 }
