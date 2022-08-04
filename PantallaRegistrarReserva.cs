@@ -54,7 +54,7 @@ namespace Gestion_de_RT
         public void seleccionTipoRT()
         {
             gestor.tomarSeleccionTipoRT(cmbTiposRT.SelectedItem.ToString());
-            btnSelecTipoRT.Enabled = false;
+            //btnSelecTipoRT.Enabled = false;
             cmbTiposRT.Enabled = false;
             lblCheckTipoRT.Visible = true;
         }
@@ -70,6 +70,7 @@ namespace Gestion_de_RT
         {
             gestor.tomarSeleccionRT(int.Parse(cmbRTs.SelectedItem.ToString().Substring(1, 3)));
             btnSelecRT.Enabled = false;
+            btnSelecTipoRT.Enabled = false;
             cmbRTs.Enabled = false;
             lblCheckRT.Visible = true;
         }
@@ -81,8 +82,17 @@ namespace Gestion_de_RT
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Notificación enviada, Muchas gracias!");
-            Application.Exit();
+            if (radioButton1.Checked || radioButton2.Checked)
+            {
+                MessageBox.Show("Notificación enviada, Muchas gracias!");
+                Application.Exit();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una forma de notificacion!");
+            }
+
+
         }
         public void mostrarMensajePertenencia(bool op)
         {
@@ -160,6 +170,7 @@ namespace Gestion_de_RT
 
                 }
             }
+            dgvCalendario.ClearSelection();
 
         }
         private void dgvTurnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -182,7 +193,7 @@ namespace Gestion_de_RT
                     }
                 }
                 popUp turnos = new popUp(this, turnosDia);
-                turnos.Show();
+                //turnos.Show();
             }
         }
 
@@ -190,11 +201,8 @@ namespace Gestion_de_RT
         {
             this.gestor.tomarSeleccionTurno(fechaTurno);
         }
-        public void presentarFormasNotificacion()
-        {
-        
-        }
-        public void pedirConfirmacion(DateTime fechaTurno)
+
+        public void pedirConfirmacion(DateTime fechaTurno, List<String> formasNotif)
         {
 
             DialogResult resultado = MessageBox.Show("Desea confirmar el turno con fecha " + fechaTurno.ToString(), "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -207,6 +215,12 @@ namespace Gestion_de_RT
                 lblTurnoConfirmado.Visible = true;
                 lblTurnoConfirmado2.Text = "Para el recurso " + cmbRTs.SelectedItem.ToString() + " confirmado con éxito!";
                 lblTurnoConfirmado2.Visible = true;
+                label1.Visible = true;
+                groupBox1.Visible = true;
+                radioButton1.Visible = true;
+                radioButton2.Visible = true;
+                btnSalir.Enabled = true;
+
             }
             else
             {

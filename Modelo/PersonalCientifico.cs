@@ -32,7 +32,10 @@ namespace Gestion_de_RT.Modelo
             this.documento = documento;
             this.usuario = usuario;
         }
-
+        public String getEmail()
+        {
+            return this.correoPersonal;
+        }
         public override bool Equals(object obj)
         {
             return obj is PersonalCientifico cientifico &&

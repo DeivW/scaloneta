@@ -143,7 +143,14 @@ namespace Gestion_de_RT
         public void tomarSeleccionTurno(DateTime fechaTurno)
         {
             //this.turnoSeleccionado = fechaTurno;
-            pantalla.pedirConfirmacion(fechaTurno);
+            pantalla.pedirConfirmacion(fechaTurno, this.presentarFormasNotificacion());
+        }
+        public List<String> presentarFormasNotificacion()
+        {
+            List<String> formasNotif = new List<string>();
+            formasNotif.Add("Whatsapp");
+            formasNotif.Add("Email");
+            return formasNotif;
         }
         public void tomarConfirmacion(DateTime fechaConfirmada)
         {
@@ -165,6 +172,11 @@ namespace Gestion_de_RT
                 }
             }
             return null;
+        }
+        private void notificarTurnoReservado()
+        {
+            String emailCientifico = this.cientificoEnSesion.getEmail();
+            InterfazCorreo.enviarEmail(emailCientifico);
         }
     }
 

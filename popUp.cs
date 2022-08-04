@@ -19,6 +19,7 @@ namespace Gestion_de_RT
             this.pp = pp;
             this.turnosDia = turnosDia;
             InitializeComponent();
+            this.Show();
             grillaTurnos.DataSource = turnosDia;
             grillaTurnos.Columns[0].HeaderText = "Día";
             grillaTurnos.Columns[1].HeaderText = "Fecha y Hora";
@@ -28,13 +29,16 @@ namespace Gestion_de_RT
             {
                 if (grillaTurnos[2, i].Value.ToString().Equals("Disponible"))
                 {
-                    grillaTurnos[2,i].Style.BackColor = Color.FromArgb(7, 83, 217);
+                    //grillaTurnos[2,i].Style.BackColor = Color.FromArgb(7, 83, 217);
+                    grillaTurnos.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(7, 83, 217);
                 }
                 else
                 {
-                    grillaTurnos[2,i].Style.BackColor = Color.FromArgb(230, 47, 8);
+                    grillaTurnos.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(230, 47, 8);
+                    
                 }
             }
+            grillaTurnos.ClearSelection();
         }
 
         private void popUp_FormClosing(object sender, FormClosingEventArgs e)
@@ -44,9 +48,16 @@ namespace Gestion_de_RT
 
         private void grillaTurnos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            pp.seleccionTurno(DateTime.Parse(grillaTurnos.Rows[e.RowIndex].Cells[1].Value.ToString()));
-            this.Hide();
-            pp.Enabled = true;
+            if (grillaTurnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.FromArgb(230, 47, 8))
+            {
+                MessageBox.Show("Ese turno no está disponible!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                pp.seleccionTurno(DateTime.Parse(grillaTurnos.Rows[e.RowIndex].Cells[1].Value.ToString()));
+                this.Hide();
+                pp.Enabled = true;
+            }
         }
     }
 }

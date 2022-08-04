@@ -103,36 +103,64 @@ namespace Gestion_de_RT
             }
             // GENERAR TURNOS         
             DateTime fechaActual = DateTime.Now;
+            DateTime fecha = new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day, 0, 0, 0);
             List<Turno> agendaTurnos = new List<Turno>();
             int cantTurnosDiarios = (24 / listaRTs[0].getFraccionamiento());
-            for (int dia = 1; dia < 31; dia++)
+            int cantTurnosTotal = cantTurnosDiarios * 30;
+            int duracionTurno = listaRTs[0].getFraccionamiento();
+
+            for (int i = 0; i < 30; i++)
             {
-                for (int j = 1; j <= cantTurnosDiarios; j++)
+                for (int j = 0; j < cantTurnosDiarios; j++)
                 {
-                    if (!(j > 1))
-                    {
-                        agendaTurnos.Add(new Turno(fechaActual, establecerDiaMes(fechaActual, dia), (new DateTime(establecerDiaMes(fechaActual, dia).Year,
-                        establecerDiaMes(fechaActual, dia).Month, establecerDiaMes(fechaActual, dia).Day,
-                        establecerDiaMes(fechaActual, dia).Hour + listaRTs[0].getFraccionamiento(), 0, 0)), estados[5], establecerDiaMes(fechaActual, dia).ToString("dddd",
+                    agendaTurnos.Add(new Turno(
+                        fechaActual,
+                        fecha.AddDays(i).AddHours(j * duracionTurno),
+                        fecha.AddDays(i).AddHours(duracionTurno),
+                        estados[5],
+                        fecha.AddDays(i).ToString("dddd",
                         new CultureInfo("es-ES"))));
-                    }
-                    else
-                    {
-                        agendaTurnos.Add(new Turno(fechaActual, (new DateTime(establecerDiaMes(fechaActual, dia).Year,
-                        establecerDiaMes(fechaActual, dia).Month, establecerDiaMes(fechaActual, dia).Day,
-                        establecerDiaMes(fechaActual, dia).Hour + listaRTs[0].getFraccionamiento(), 0, 0)), 
-                        (new DateTime(establecerDiaMes(fechaActual, dia).Year,
-                        establecerDiaMes(fechaActual, dia).Month, establecerDiaMes(fechaActual, dia).Day,
-                        establecerDiaMes(fechaActual, dia).Hour + listaRTs[0].getFraccionamiento(), 0, 0)), estados[5], 
-                        (new DateTime(establecerDiaMes(fechaActual, dia).Year,
-                        establecerDiaMes(fechaActual, dia).Month, establecerDiaMes(fechaActual, dia).Day,
-                        establecerDiaMes(fechaActual, dia).Hour + listaRTs[0].getFraccionamiento(), 0, 0)).ToString("dddd",
-                        new CultureInfo("es-ES"))));
-                    }
                 }
-                
             }
+
+            agendaTurnos[5].crearCambioEstado(estados[6]);
+
+            // GENERAR TURNOS         
+            //DateTime fechaActual = DateTime.Now;
+            //List<Turno> agendaTurnos = new List<Turno>();
+            //int cantTurnosDiarios = (24 / listaRTs[0].getFraccionamiento());
+            //for (int dia = 1; dia < 31; dia++)
+            //{
+            //    for (int j = 1; j <= cantTurnosDiarios; j++)
+            //    {
+            //        if (!(j > 1))
+            //        {
+            //            agendaTurnos.Add(new Turno(fechaActual, establecerDiaMes(fechaActual, dia), (new DateTime(establecerDiaMes(fechaActual, dia).Year,
+            //            establecerDiaMes(fechaActual, dia).Month, establecerDiaMes(fechaActual, dia).Day,
+            //            establecerDiaMes(fechaActual, dia).Hour + listaRTs[0].getFraccionamiento(), 0, 0)), estados[5], establecerDiaMes(fechaActual, dia).ToString("dddd",
+            //            new CultureInfo("es-ES"))));
+            //        }
+            //        else
+            //        {
+            //            agendaTurnos.Add(new Turno(fechaActual, (new DateTime(establecerDiaMes(fechaActual, dia).Year,
+            //            establecerDiaMes(fechaActual, dia).Month, establecerDiaMes(fechaActual, dia).Day,
+            //            establecerDiaMes(fechaActual, dia).Hour + listaRTs[0].getFraccionamiento(), 0, 0)), 
+            //            (new DateTime(establecerDiaMes(fechaActual, dia).Year,
+            //            establecerDiaMes(fechaActual, dia).Month, establecerDiaMes(fechaActual, dia).Day,
+            //            establecerDiaMes(fechaActual, dia).Hour + listaRTs[0].getFraccionamiento(), 0, 0)), estados[5], 
+            //            (new DateTime(establecerDiaMes(fechaActual, dia).Year,
+            //            establecerDiaMes(fechaActual, dia).Month, establecerDiaMes(fechaActual, dia).Day,
+            //            establecerDiaMes(fechaActual, dia).Hour + listaRTs[0].getFraccionamiento(), 0, 0)).ToString("dddd",
+            //            new CultureInfo("es-ES"))));
+            //        }
+            //    }
+
+            //}
+
+
+
             listaRTs[0].setTurnos(agendaTurnos);
+            listaRTs[7].setTurnos(agendaTurnos);
             //listaRTs[0].setTurnos(agendaTurnos);
 
 
@@ -148,17 +176,17 @@ namespace Gestion_de_RT
 
 
         }
-        public static DateTime establecerDiaMes(DateTime fechaActual, int dia)
-        {
-            if ((fechaActual.Day + dia) > 30)
-            {
-                return new DateTime(2022, fechaActual.Month +1, (dia - (30 - fechaActual.Day)));
-            }
-            else
-            {
-                return new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day + dia);
-            }
-        }
+        //public static DateTime establecerDiaMes(DateTime fechaActual, int dia)
+        //{
+        //    if ((fechaActual.Day + dia) > 30)
+        //    {
+        //        return new DateTime(2022, fechaActual.Month +1, (dia - (30 - fechaActual.Day)));
+        //    }
+        //    else
+        //    {
+        //        return new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day + dia);
+        //    }
+        //}
 
     }
 }

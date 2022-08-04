@@ -34,7 +34,7 @@ namespace Gestion_de_RT.Modelo
             this.diaSemana = diaSemana;
 
         }
-        private void crearCambioEstado(Estado estado)
+        public void crearCambioEstado(Estado estado)
         {
             this.cambiosEstado.Add(new CambioEstadoTurno(DateTime.Now, estado));
 
