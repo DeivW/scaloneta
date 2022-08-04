@@ -25,7 +25,7 @@ namespace Gestion_de_RT.Modelo
         {
             this.tipoRT = tipoRT;
             this.numero = num;
-            this.fraccionamientoTurnos = 12;
+            this.fraccionamientoTurnos = 8;
             // this.cambiosEstado = new List<CambioEstadoRT>();
         }
 
