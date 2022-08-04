@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web;
+using System.Net.Mail;
+
 
 namespace Gestion_de_RT
 {
@@ -78,6 +81,7 @@ namespace Gestion_de_RT
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Notificación enviada, Muchas gracias!");
             Application.Exit();
         }
         public void mostrarMensajePertenencia(bool op)
@@ -199,8 +203,10 @@ namespace Gestion_de_RT
                 MessageBox.Show("Turno seleccionado con exito!");
                 gestor.tomarConfirmacion(fechaTurno);
                 dgvCalendario.Enabled = false;
-                lblTurnoConfirmado.Text = "Turno para el día y hora " + fechaTurno.ToString() + " confirmado con éxito!" ;
+                lblTurnoConfirmado.Text = "Turno para el día y hora " + fechaTurno.ToString() ;
                 lblTurnoConfirmado.Visible = true;
+                lblTurnoConfirmado2.Text = "Para el recurso " + cmbRTs.SelectedItem.ToString() + " confirmado con éxito!";
+                lblTurnoConfirmado2.Visible = true;
             }
             else
             {
@@ -230,14 +236,6 @@ namespace Gestion_de_RT
         //    // Draw the text    
         //    e.Graphics.DrawString(text, ((Control)sender).Font, brush, e.Bounds.X, e.Bounds.Y);
         //}
-
-
-
-
-
-
-
-
 
         private void PantallaRegistrarReserva_FormClosing(object sender, FormClosingEventArgs e)
         {
