@@ -55,13 +55,14 @@ namespace Gestion_de_RT
         {
             gestor.tomarSeleccionTipoRT(cmbTiposRT.SelectedItem.ToString());
             //btnSelecTipoRT.Enabled = false;
-            cmbTiposRT.Enabled = false;
+            //cmbTiposRT.Enabled = false;
             lblCheckTipoRT.Visible = true;
         }
         public void listarRT(List<Tuple<int, string, string>> datosRTs)
         {
             lblRTs.Visible = true;
             cmbRTs.Visible = true;
+            lblEspecificacion.Visible = true;
             btnSelecRT.Visible = true;
             cmbRTs.DataSource = datosRTs;
 
@@ -73,6 +74,7 @@ namespace Gestion_de_RT
             btnSelecTipoRT.Enabled = false;
             cmbRTs.Enabled = false;
             lblCheckRT.Visible = true;
+            cmbTiposRT.Enabled = false;
         }
 
         private void btnSelecRT_Click(object sender, EventArgs e)
