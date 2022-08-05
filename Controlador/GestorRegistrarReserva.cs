@@ -99,16 +99,30 @@ namespace Gestion_de_RT
                 datosRTs.Add(RT.mostrarDatos());
                 numRT.Add(RT.getNumero());
             }
-            pantalla.listarRT(datosRTs);
+            
+            pantalla.listarRT(this.agruparPorCI(datosRTs));
 
 
 
             //----
         }
         // VEEER kionda
-        public void agruparPorCI()
+        public List<Tuple<int, string, string>> agruparPorCI(List<Tuple<int, string, string>> datosRTs)
         {
+            //List<String> centros = new List<string>();
+            //foreach (var tupla in datosRTs)
+            //{
+            //    if (!centros.Contains(tupla.Item3))
+            //    {
+            //        centros.Add(tupla.Item3);
+            //    }
 
+            //}
+            //List<String> centrosOrdenados = centros.Sort(
+
+            datosRTs.Sort();
+
+            return datosRTs;
         }
         public void tomarSeleccionRT(int numRT)
         {

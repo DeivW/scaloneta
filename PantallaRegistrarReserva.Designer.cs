@@ -47,6 +47,8 @@ namespace Gestion_de_RT
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblEspecificacion = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -112,7 +114,7 @@ namespace Gestion_de_RT
             this.lblRTs.AutoSize = true;
             this.lblRTs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRTs.ForeColor = System.Drawing.Color.White;
-            this.lblRTs.Location = new System.Drawing.Point(88, 110);
+            this.lblRTs.Location = new System.Drawing.Point(81, 123);
             this.lblRTs.Name = "lblRTs";
             this.lblRTs.Size = new System.Drawing.Size(182, 17);
             this.lblRTs.TabIndex = 5;
@@ -123,15 +125,15 @@ namespace Gestion_de_RT
             // 
             this.cmbRTs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRTs.FormattingEnabled = true;
-            this.cmbRTs.Location = new System.Drawing.Point(325, 110);
+            this.cmbRTs.Location = new System.Drawing.Point(269, 123);
             this.cmbRTs.Name = "cmbRTs";
-            this.cmbRTs.Size = new System.Drawing.Size(140, 21);
+            this.cmbRTs.Size = new System.Drawing.Size(196, 21);
             this.cmbRTs.TabIndex = 6;
             this.cmbRTs.Visible = false;
             // 
             // btnSelecRT
             // 
-            this.btnSelecRT.Location = new System.Drawing.Point(471, 107);
+            this.btnSelecRT.Location = new System.Drawing.Point(471, 123);
             this.btnSelecRT.Name = "btnSelecRT";
             this.btnSelecRT.Size = new System.Drawing.Size(75, 23);
             this.btnSelecRT.TabIndex = 7;
@@ -145,7 +147,7 @@ namespace Gestion_de_RT
             this.lblCheckRT.AutoSize = true;
             this.lblCheckRT.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckRT.ForeColor = System.Drawing.Color.Lime;
-            this.lblCheckRT.Location = new System.Drawing.Point(552, 108);
+            this.lblCheckRT.Location = new System.Drawing.Point(552, 118);
             this.lblCheckRT.Name = "lblCheckRT";
             this.lblCheckRT.Size = new System.Drawing.Size(25, 26);
             this.lblCheckRT.TabIndex = 8;
@@ -168,7 +170,7 @@ namespace Gestion_de_RT
             this.dgvCalendario.AllowUserToAddRows = false;
             this.dgvCalendario.AllowUserToDeleteRows = false;
             this.dgvCalendario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCalendario.Location = new System.Drawing.Point(131, 154);
+            this.dgvCalendario.Location = new System.Drawing.Point(128, 168);
             this.dgvCalendario.Name = "dgvCalendario";
             this.dgvCalendario.ReadOnly = true;
             this.dgvCalendario.RowHeadersWidth = 51;
@@ -180,7 +182,7 @@ namespace Gestion_de_RT
             // 
             this.pictureBox1.Image = global::Gestion_de_RT.Properties.Resources.imagen;
             this.pictureBox1.Location = new System.Drawing.Point(9, 364);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(232, 135);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -218,9 +220,9 @@ namespace Gestion_de_RT
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Location = new System.Drawing.Point(529, 436);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(150, 63);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
@@ -231,7 +233,7 @@ namespace Gestion_de_RT
             this.radioButton2.AutoSize = true;
             this.radioButton2.ForeColor = System.Drawing.Color.White;
             this.radioButton2.Location = new System.Drawing.Point(5, 37);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(92, 17);
             this.radioButton2.TabIndex = 1;
@@ -245,7 +247,7 @@ namespace Gestion_de_RT
             this.radioButton1.AutoSize = true;
             this.radioButton1.ForeColor = System.Drawing.Color.White;
             this.radioButton1.Location = new System.Drawing.Point(5, 13);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(68, 17);
             this.radioButton1.TabIndex = 0;
@@ -267,12 +269,37 @@ namespace Gestion_de_RT
             this.label1.Text = "Seleccione su forma de notificación:";
             this.label1.Visible = false;
             // 
+            // lblEspecificacion
+            // 
+            this.lblEspecificacion.AutoSize = true;
+            this.lblEspecificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEspecificacion.ForeColor = System.Drawing.Color.White;
+            this.lblEspecificacion.Location = new System.Drawing.Point(206, 107);
+            this.lblEspecificacion.Name = "lblEspecificacion";
+            this.lblEspecificacion.Size = new System.Drawing.Size(322, 13);
+            this.lblEspecificacion.TabIndex = 15;
+            this.lblEspecificacion.Text = "(N° Inventario-Marca y modelo-Centro de Investigación)";
+            this.lblEspecificacion.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(391, 152);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(211, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Calendario para selección de turnos";
+            // 
             // PantallaRegistrarReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(154)))), ((int)(((byte)(191)))));
             this.ClientSize = new System.Drawing.Size(1023, 511);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblEspecificacion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblTurnoConfirmado2);
@@ -326,6 +353,8 @@ namespace Gestion_de_RT
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblEspecificacion;
+        private System.Windows.Forms.Label label2;
     }
 }
 
